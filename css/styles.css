@@ -1,0 +1,45 @@
+body {
+    background-color: #e8eaed;
+    color: #2e3945;
+    font-family: "Host Grotesk", sans-serif;
+}
+
+.hero {
+    padding-top: 30vh;
+}
+
+.primary-text {
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.line-spacing {
+    margin: 0;
+    line-height: 2.8rem;
+}
+
+a {
+    text-decoration-line: underline;
+    text-decoration-color: #2e3945;
+    text-decoration-style: solid;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 2px;
+}
+
+/*
+input {
+    padding: 10px 10px 10px 5px;
+    border: none;
+    border-bottom: 1px solid #515151;
+    background: transparent;
+}
+
+input:focus {
+ outline: none;
+}
+*/
+
+.shadow {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+                0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
