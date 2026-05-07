@@ -49,11 +49,6 @@ a {
     text-underline-offset: 2px;
 }
 
-.shadow {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
-                0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
-
 form {
   max-width: 720px;
 }
@@ -159,9 +154,6 @@ button:active {
 #proceedBtn,
 #toAddressBtn,
 button[type="submit"] {
-  background-color: #2e3945;
-  color: #ffffff;
-  font-weight: 600;
   box-shadow: 0 8px 20px rgba(46, 57, 69, 0.16);
 }
 
@@ -191,11 +183,13 @@ button[type="submit"]:hover {
   transform: none;
 }
 
-#panel1,
-#panel2,
-#panel3,
-#panel4 {
+.panel {
+  display: none;
   margin-top: 1rem;
+}
+
+.panel.active {
+  display: block;
 }
 
 #quoteResult {

@@ -1,8 +1,10 @@
 <!-- 
  TODO:
- Implement 3-panel footer
+ Implement Locality section as it was on previous site
+ Implement 2-panel footer - Contant Us & Request a Callback*
+ Implement Nav Bar -type-thing
  ...
- Request a call back should inculde a select offering:
+ *Request a call back should inculde a select offering:
  early morning, late morning, early afternoon (etc.)
  "on the" DD MM (2 digit number inputs, with nice logic for traversing)
 -->
@@ -44,91 +46,94 @@
       </div>
       <div class="content-card">
         <form id="epcForm">
-          <!-- Panel 1 -->
-          <div id="panel1">
-            <label for="detachment">Detachment type</label>
-            <select id="detachment" name="detachment" required>
-              <option value="" selected hidden>Select</option>
-              <option value="flat/maisonette">Flat/Maisonette</option>
-              <option value="mid-terraced">Mid-Terraced</option>
-              <option value="end-terraced">End-Terraced</option>
-              <option value="semi-detached">Semi-Detached</option>
-              <option value="detached">Detached</option>
-            </select>
+          <div class="panel-group" data-panel-group="epc">
+            <!-- Panel 1 -->
+            <div class="panel active" data-panel="step-1">
+              <label for="detachment">Detachment type</label>
+              <select id="detachment" name="detachment" required>
+                <option value="" selected hidden>Select</option>
+                <option value="flat/maisonette">Flat/Maisonette</option>
+                <option value="mid-terraced">Mid-Terraced</option>
+                <option value="end-terraced">End-Terraced</option>
+                <option value="semi-detached">Semi-Detached</option>
+                <option value="detached">Detached</option>
+              </select>
 
-            <label for="stories">No. of stories</label>
-            <select id="stories" name="stories" required>
-              <option value="" selected hidden>Select</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4+">More than 3</option>
-            </select>
+              <label for="stories">No. of stories</label>
+              <select id="stories" name="stories" required>
+                <option value="" selected hidden>Select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4+">More than 3</option>
+              </select>
 
-            <label for="bedrooms">No. of bedrooms</label>
-            <select id="bedrooms" name="bedrooms" required>
-              <option value="" selected hidden>Select</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6+">More than 5</option>
-            </select>
+              <label for="bedrooms">No. of bedrooms</label>
+              <select id="bedrooms" name="bedrooms" required>
+                <option value="" selected hidden>Select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6+">More than 5</option>
+              </select>
 
-            <button type="button" id="calculateBtn">Calculate Quote</button>
-          </div>
+              <button type="button" id="calculateBtn">Calculate Quote</button>
+            </div>
 
-          <!-- Panel 2 -->
-          <div id="panel2" hidden>
-            <p id="quoteResult">Your quote will appear here.</p>
+            <!-- Panel 2 -->
+            <div class="panel" data-panel="step-2">
+              <p id="quoteResult">Your quote will appear here.</p>
 
-            <div class="button-row">
-              <button type="button" class="backBtn">Back</button>
-              <button type="button" id="proceedBtn">Book an assessment</button>
+              <div class="button-row">
+                <button type="button" class="backBtn">Back</button>
+                <button type="button" id="proceedBtn">Book an assessment</button>
+              </div>
+            </div>
+
+            <!-- Panel 3 -->
+            <div class="panel" data-panel="step-3">
+              <label for="firstName">First Name</label>
+              <input id="firstName" name="firstName" type="text" required />
+
+              <label for="lastName">Last Name</label>
+              <input id="lastName" name="lastName" type="text" required />
+
+              <label for="mobile">Mobile</label>
+              <input id="mobile" name="mobile" type="tel" required />
+
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required />
+
+              <div class="button-row">
+                <button type="button" class="backBtn">Back</button>
+                <button type="button" id="toAddressBtn">Continue</button>
+              </div>
+            </div>
+
+            <!-- Panel 4 -->
+            <div class="panel" data-panel="step-4">
+              <label for="address1">Address Line 1</label>
+              <input id="address1" name="address1" type="text" required />
+
+              <label for="address2">Address Line 2</label>
+              <input id="address2" name="address2" type="text" />
+
+              <label for="postcode">Post Code</label>
+              <input id="postcode" name="postcode" type="text" required />
+
+              <input type="hidden" name="formType" value="epc_quote" />
+              <input type="hidden" name="timestamp" id="timestamp" />
+              <input type="hidden" name="quote" id="quote" />
+
+              <div class="button-row">
+                <button type="button" class="backBtn">Back</button>
+                <button type="submit">Submit</button>
+              </div>
             </div>
           </div>
-
-          <!-- Panel 3 -->
-          <div id="panel3" hidden>
-            <label for="firstName">First Name</label>
-            <input id="firstName" name="firstName" type="text" required />
-
-            <label for="lastName">Last Name</label>
-            <input id="lastName" name="lastName" type="text" required />
-
-            <label for="mobile">Mobile</label>
-            <input id="mobile" name="mobile" type="tel" required />
-
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" required />
-
-            <div class="button-row">
-              <button type="button" class="backBtn">Back</button>
-              <button type="button" id="toAddressBtn">Continue</button>
-            </div>
-          </div>
-
-          <!-- Panel 4 -->
-          <div id="panel4" hidden>
-            <label for="address1">Address Line 1</label>
-            <input id="address1" name="address1" type="text" required />
-
-            <label for="address2">Address Line 2</label>
-            <input id="address2" name="address2" type="text" />
-
-            <label for="postcode">Post Code</label>
-            <input id="postcode" name="postcode" type="text" required />
-
-            <input type="hidden" name="formType" value="epc_quote" />
-            <input type="hidden" name="timestamp" id="timestamp" />
-            <input type="hidden" name="quote" id="quote" />
-
-            <div class="button-row">
-              <button type="button" class="backBtn">Back</button>
-              <button type="submit">Submit</button>
-            </div>
-          </div>
+          
         </form>
       </div>
     </div>
@@ -182,24 +187,40 @@
       const form = document.getElementById("epcForm");
       let quote = "";
 
-      const panels = [
-        document.getElementById("panel1"),
-        document.getElementById("panel2"),
-        document.getElementById("panel3"),
-        document.getElementById("panel4"),
-      ];
+      class PanelManager {
+        constructor(groupName) {
+          this.group = document.querySelector(`[data-panel-group="${groupName}"]`);
+          this.panels = Array.from(this.group.querySelectorAll('[data-panel]'));
+          this.currentIndex = this.panels.findIndex(p => p.classList.contains('active'));
+        }
 
-      let currentPanel = 0;
+        show(panelName) {
+          this.panels.forEach(p => p.classList.remove('active'));
 
-      function showPanel(index) {
-        panels.forEach((panel, i) => {
-          panel.hidden = i !== index;
-        });
-        currentPanel = index;
+          const target = this.group.querySelector(`[data-panel="${panelName}"]`);
+          if (target) {
+            target.classList.add('active');
+            this.currentIndex = this.panels.indexOf(target);
+          }
+        }
+
+        next() {
+          if (this.currentIndex < this.panels.length - 1) {
+            this.show(this.panels[this.currentIndex + 1].dataset.panel);
+          }
+        }
+
+        back() {
+          if (this.currentIndex > 0) {
+            this.show(this.panels[this.currentIndex - 1].dataset.panel);
+          }
+        }
       }
 
-      function validatePanel(panelId) {
-        const panel = document.getElementById(panelId);
+      const epcPanels = new PanelManager('epc');
+
+      function validatePanel(panelName) {
+        const panel = document.querySelector(`[data-panel="${panelName}"]`);
         const inputs = panel.querySelectorAll("input, select, textarea");
 
         for (let input of inputs) {
@@ -215,7 +236,7 @@
 
       // --- QUOTE CALCULATION ---
       document.getElementById("calculateBtn").addEventListener("click", () => {
-        if (!validatePanel("panel1")) return;
+        if (!validatePanel('step-1')) return;
 
         const bedrooms = document.getElementById("bedrooms").value;
         quote = 60 + (parseInt(bedrooms) || 1) * 10;
@@ -224,26 +245,24 @@
           `Estimated Quote: £${quote}`;
         document.getElementById("quote").value = quote;
 
-        showPanel(1);
+        epcPanels.show('step-2');
       });
 
       // --- FORWARD NAV ---
       document.getElementById("proceedBtn").addEventListener("click", () => {
-        showPanel(2);
+        epcPanels.next();
       });
 
       document.getElementById("toAddressBtn").addEventListener("click", () => {
-        if (!validatePanel("panel3")) return;
+        if (!validatePanel('step-3')) return;
 
-        showPanel(3);
+        epcPanels.show('step-4');
       });
 
       // --- BACK NAV ---
       document.querySelectorAll(".backBtn").forEach((btn) => {
         btn.addEventListener("click", () => {
-          if (currentPanel > 0) {
-            showPanel(currentPanel - 1);
-          }
+          epcPanels.back();
         });
       });
 
@@ -251,7 +270,6 @@
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
-        document.getElementById("quote").value = quote;
         document.getElementById("timestamp").value = new Date().toISOString();
 
         const formData = new FormData(form);
@@ -272,7 +290,7 @@
 
           alert("Form submitted successfully!");
           form.reset();
-          showPanel(0);
+          epcPanels.show('step-1');
         } catch (err) {
           console.error(err);
           alert("Something went wrong.");

@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\Peter\\\\Documents\\\\GitHub\\\\breadcrumb\" -Force)",
+      "Bash(Select-Object Name, PSIsContainer)",
+      "PowerShell(Test-Path \"C:\\\\Users\\\\Peter\\\\Documents\\\\GitHub\\\\breadcrumb\"; Get-ChildItem \"C:\\\\Users\\\\Peter\\\\Documents\\\\GitHub\\\\breadcrumb\" | ForEach-Object { $_.Name })"
+    ]
+  }
+}
