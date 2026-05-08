@@ -24,6 +24,7 @@
     />
   </head>
   <body>
+    <div class="page-wrapper">
     <div id="hero">
       <h1 class="primary-text line-spacing">
         is your <a>local</a> epc provider.
@@ -38,10 +39,12 @@
       </p>
     </div>
     <div id="mainContent">
-      <div class="content-card">
+      <p class="primary-text line-spacing">
+        We'll have your property market-ready quickly, affordably and without stress.
+      </p>
+      <div class="content-card-dashed">
         <p class="secondary-text">
-          We'll have your property market-ready quickly, affordably and without
-          stress. Tell us about your property and let's calculate your quote.
+          Tell us about your property and let's calculate your quote.
         </p>
       </div>
       <div class="content-card">
@@ -137,6 +140,7 @@
         </form>
       </div>
     </div>
+    </div>
 
     <script>
       let userEngaged = false;
@@ -192,14 +196,21 @@
           this.group = document.querySelector(`[data-panel-group="${groupName}"]`);
           this.panels = Array.from(this.group.querySelectorAll('[data-panel]'));
           this.currentIndex = this.panels.findIndex(p => p.classList.contains('active'));
+          this.panels.forEach((p, i) => {
+            if (i !== this.currentIndex) p.setAttribute('inert', '');
+          });
         }
 
         show(panelName) {
-          this.panels.forEach(p => p.classList.remove('active'));
+          this.panels.forEach(p => {
+            p.classList.remove('active');
+            p.setAttribute('inert', '');
+          });
 
           const target = this.group.querySelector(`[data-panel="${panelName}"]`);
           if (target) {
             target.classList.add('active');
+            target.removeAttribute('inert');
             this.currentIndex = this.panels.indexOf(target);
           }
         }

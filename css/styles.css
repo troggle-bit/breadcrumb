@@ -1,13 +1,18 @@
 body {
-    background-color: #e8eaed;
+    background-color: #ffffff;
     color: #2e3945;
     font-family: "Host Grotesk", sans-serif;
 }
 
+.page-wrapper {
+    max-width: 616px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
 #hero {
     padding-top: 30vh;
-    padding-bottom: 48px;
-    margin: 16px;
+    padding-bottom: 28px;
 }
 
 /* Base state */
@@ -47,10 +52,6 @@ a {
     text-decoration-style: solid;
     text-decoration-thickness: 3px;
     text-underline-offset: 2px;
-}
-
-form {
-  max-width: 720px;
 }
 
 label {
@@ -183,13 +184,21 @@ button[type="submit"]:hover {
   transform: none;
 }
 
+.panel-group {
+  display: grid;
+  align-items: center;
+}
+
 .panel {
-  display: none;
+  grid-area: 1 / 1;
+  visibility: hidden;
+  pointer-events: none;
   margin-top: 1rem;
 }
 
 .panel.active {
-  display: block;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 #quoteResult {
@@ -202,12 +211,22 @@ button[type="submit"]:hover {
   font-weight: 600;
 }
 
+.content-card-dashed {
+  max-width: 480px;
+  display: flex;
+  gap: 12px;
+  margin: 1rem 0;
+  padding: 0;
+  border: 1px dashed #b3bcc6;
+  border-radius: 12px;
+}
+
 .content-card {
-  max-width: 760px;
-  margin: 1rem auto;
+  max-width: 480px;
+  margin: 1rem 0;
   padding: 0;
   border: 1px solid #d6dde4;
-  border-radius: 18px;
+  border-radius: 12px;
   background-color: rgba(255, 255, 255, 0.72);
   backdrop-filter: blur(4px);
   box-shadow:
@@ -215,11 +234,11 @@ button[type="submit"]:hover {
     0 10px 30px rgba(46, 57, 69, 0.06);
 }
 
-.content-card p {
+.content-card p, .content-card-dashed p {
   margin: 0;
 }
 
-.content-card > p {
+.content-card > p, .content-card-dashed > p {
   padding: 1.5rem;
 }
 
@@ -261,8 +280,12 @@ button[type="submit"]:hover {
 }
 
 @media (max-width: 640px) {
+  .page-wrapper {
+    padding: 0 1rem;
+  }
+
   .content-card {
-    margin: 1rem;
+    margin: 1rem 0;
     border-radius: 14px;
   }
 
