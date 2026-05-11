@@ -42,16 +42,30 @@
       <p class="primary-text line-spacing">
         We'll have your property market-ready quickly, affordably and without stress.
       </p>
-      <div class="content-card-dashed">
-        <p class="secondary-text">
-          Tell us about your property and let's calculate your quote.
-        </p>
+      <br/> <!-- There will be a graphic here at some point -->
+      <p class="primary-text line-spacing">
+        How?
+      </p>
+      <div class="part-width">
+        <ol type="1">
+        <li class="secondary-text">We can offer you an instant quote; here and now.</li>
+        <li class="secondary-text">Our flexible assessment times cater to your earliest convenience.</li>
+        <li class="secondary-text">We'll lodge your certificate on the same day as your assessment - No messing around.</li>
+      </ol>
       </div>
-      <div class="content-card">
+      
+      <div class="content-card-dashed part-width">
+        <span class="tertiary-text">
+          <!-- There will be an SVG on the left here at some point -->
+          Tell us about your property and let's calculate your quote.
+        </span>
+      </div>
+      <div class="content-card part-width">
         <form id="epcForm">
           <div class="panel-group" data-panel-group="epc">
             <!-- Panel 1 -->
             <div class="panel active" data-panel="step-1">
+              <p class="primary-text">Quote Calculator</p><br/>
               <label for="detachment">Detachment type</label>
               <select id="detachment" name="detachment" required>
                 <option value="" selected hidden>Select</option>
@@ -138,6 +152,23 @@
           </div>
           
         </form>
+      </div>
+      <div>
+        <p class="primary-text line-spacing">
+          Where?
+        </p>
+        <p class="tertiary-text part-width">
+          Based in Buckingham, I primarily look to serve the following areas: MK17_0, MK18, MK19, Wolverton,
+          Bletchley, NN12, NN13, OX26, OX27, but will be happy to consider other addresses.
+        </p>
+        <div class="map-wrapper">
+          <div class="map-container">
+            <iframe id="locality" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps/embed/v1/view?key=AIzaSyBfCF11DdH-xh6Qbbpy3zEg6LhqNjfSCKg&center=51.999457,-0.987046&zoom=10&maptype=roadmap">
+            </iframe>
+          </div>
+        </div>
       </div>
     </div>
     </div>
